@@ -13,7 +13,15 @@ class Product extends Model
         'price',
     ];
 
-    protected $casts = [
-        'price' => 'integer',
-    ];
+    public function isBoot() {
+        return $this->category === 'boots';
+    }
+
+    public function isSpecificSku() {
+        return $this->sku === '000003';
+    }
+
+    public function isMultipleDiscounted() {
+        return $this->isBoot() && $this->isSpecificSku();
+    }
 }
