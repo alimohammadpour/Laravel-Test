@@ -21,6 +21,7 @@ services:
     container_name: mysql
     restart: unless-stopped
     volumes:
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./mysql/data:/var/lib/mysql
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
