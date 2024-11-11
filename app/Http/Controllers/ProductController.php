@@ -13,7 +13,6 @@ class ProductController extends Controller
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    // ?category=boots&priceLessThan=89000
     public function index(Request $request) {
         $query = Product::query();
         if ($category = $request->query('category'))
@@ -22,7 +21,7 @@ class ProductController extends Controller
         if ($priceLessThan = $request->query('priceLessThan'))
             $query->where('price', '<', $priceLessThan);
 
-        return $query->take(value: 5)
+        return $query->take(5)
             ->get()
             ->transform(function($product) {
                 return (new DiscountTransformer())->apply($product);
