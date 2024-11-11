@@ -47,4 +47,11 @@ class ProductTest extends TestCase
         $response = $this->get('/api/products/');
         $this->assertNull($response->original[0]['price']['discount_percentage']);
     }
+
+    public function test_product_index_limit(): void
+    {
+        Product::factory(7)->create();
+        $response = $this->get('/api/products/');
+        $this->assertCount(5, $response->original);
+    }
 }

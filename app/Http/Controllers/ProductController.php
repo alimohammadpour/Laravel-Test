@@ -22,8 +22,10 @@ class ProductController extends Controller
         if ($priceLessThan = $request->query('priceLessThan'))
             $query->where('price', '<', $priceLessThan);
 
-        return $query->get()->transform(function($product) {
-            return (new DiscountTransformer())->apply($product);
-        });
+        return $query->take(value: 5)
+            ->get()
+            ->transform(function($product) {
+                return (new DiscountTransformer())->apply($product);
+            });
     }
 }
