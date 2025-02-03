@@ -1,4 +1,4 @@
-# Mytheresa
+# Laravel-Test
 
 A coding challenge project.
 
@@ -17,8 +17,8 @@ To set up the project locally, follow these steps:
 ### 1. Clone the Repository
 
 ```
-git clone https://github.com/alimohammadpour/mytheresa.git
-cd mytheresa
+git clone https://github.com/alimohammadpour/Laravel-Test.git
+cd Laravel-Test
 ```
 
 ### 2. Environment Variables
